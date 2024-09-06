@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 
-const CustomCard = ({ title, subtitle, content, image, type }) => {
+const CustomCard = ({ title, subtitle, content, image, type, onClick }) => {
     const isLifeCard = type === 'travel' || type === 'cooking';
     return (
         <Card
+            onClick={onClick}
             className={`custom-card ${type}`}
             sx={{
                 border: "1.5px solid #457b9d",
@@ -14,6 +15,7 @@ const CustomCard = ({ title, subtitle, content, image, type }) => {
                 flexDirection: 'column',
                 position: 'relative',
                 overflow: 'hidden',
+                cursor: 'pointer',
             }}
         >
             {isLifeCard ? (

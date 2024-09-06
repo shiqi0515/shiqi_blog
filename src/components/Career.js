@@ -3,9 +3,13 @@ import { Box, Typography, Container } from '@mui/material';
 import CustomCard from './common/CustomCard';
 import CustomSlider from './common/CustomSlider';
 import { useTranslation } from 'react-i18next';
-
+import { useNavigate } from 'react-router-dom';
 function Career() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const handleCardClick = (type, id, data) => {
+        navigate(`/detail/${type}/${id}`, { state: { cardData: data } });
+    };
 
     const workExperience = [
         {
@@ -61,6 +65,7 @@ function Career() {
                                         content={work.description}
                                         type="career"
                                         id={index}
+                                        onClick={() => handleCardClick("career", index + 1, work)}
                                     />
                                 </div>
                             ))}
@@ -80,6 +85,7 @@ function Career() {
                                         content={project.description}
                                         type="project"
                                         id={index}
+                                        onClick={() => handleCardClick("project", index + 1, project)}
                                     />
                                 </div>
                             ))}

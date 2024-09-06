@@ -5,10 +5,14 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import CustomCard from "./common/CustomCard";
 import CustomSlider from "./common/CustomSlider";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from 'react-router-dom';
 
 function Life() {
     const { t } = useTranslation();
-
+    const navigate = useNavigate();
+    const handleCardClick = (type, id, data) => {
+        navigate(`/detail/${type}/${id}`, { state: { cardData: data } });
+    };
     const travels = [
         {
             destination: t("Nara, Japan"),
@@ -86,6 +90,7 @@ function Life() {
                                         icon={TravelExploreIcon}
                                         type="travel"
                                         id={index + 1}
+                                        onClick={() => handleCardClick("travel", index + 1, travel)}
                                     />
                                 </div>
                             ))}
@@ -111,6 +116,7 @@ function Life() {
                                         icon={RestaurantIcon}
                                         type="cooking"
                                         id={index + 1}
+                                        onClick={() => handleCardClick("cooking", index + 1, recipe)}
                                     />
                                 </div>
                             ))}
