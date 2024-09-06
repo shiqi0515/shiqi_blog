@@ -13,7 +13,7 @@ const CustomCard = ({ title, subtitle, content, image, type }) => {
                 height: '100hv',
                 flexDirection: 'column',
                 position: 'relative',
-                overflow: 'hidden', // 确保内容不会溢出卡片
+                overflow: 'hidden',
             }}
         >
             {isLifeCard ? (
