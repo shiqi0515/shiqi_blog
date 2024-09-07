@@ -15,37 +15,67 @@ function DetailPage() {
     }
 
     const renderContent = () => {
+        const imgStyle = {
+            width: '100%',
+            maxWidth: '500px',
+            height: 'auto',
+            display: 'block',
+            margin: '20px auto'
+        };
+
         switch (type) {
             case 'travel':
                 return (
                     <>
-                        <h3>{cardData.destination}</h3>
-                        <p>日期: {cardData.date}</p>
-                        <img src={cardData.image} alt={cardData.destination} />
+                        <h1>{cardData.destination}</h1>
+                        <h3>{t('Date')}: {cardData.date}</h3>
+                        <img src={cardData.image} alt={cardData.destination} style={imgStyle} />
                     </>
                 );
             case 'cooking':
                 return (
                     <>
-                        <h3>{cardData.name}</h3>
+                        <h1>{cardData.name}</h1>
                         <p>{cardData.subtitle}</p>
-                        <img src={cardData.image} alt={cardData.name} />
+                        <img src={cardData.image} alt={cardData.name} style={imgStyle} />
                     </>
                 );
-            // 可以添加更多类型的处理
+            case 'work':
+                return (
+                    <>
+                        <h1>{cardData.title}</h1>
+                        <h2>{cardData.subtitle}</h2>
+                        <h2>{t('Company')}: {cardData.company}</h2>
+                        <h3>{t('Period')}: {cardData.period}</h3>
+                        <p>{t('Description')}: {cardData.description}</p>
+                        {cardData.image && <img src={cardData.image} alt={cardData.title} style={imgStyle} />}
+                    </>
+                );
+            case 'project':
+                return (
+                    <>
+                        <h1>{cardData.title}</h1>
+                        <h2>{t('Company')}: {cardData.company}</h2>
+                        <h3>{t('Period')}: {cardData.period}</h3>
+                        <p>{t('Description')}: {cardData.description}</p>
+                        {cardData.image && <img src={cardData.image} alt={cardData.title} style={imgStyle} />}
+                    </>
+                );
             default:
-                return <p>未知类型的卡片</p>;
+                return <p>Unknown type of card</p>;
         }
     };
 
     return (
-        <Box sx={{ py: 4 }}>
+        <Box sx={{
+            py: 0,
+            height: '100vh',
+            overflow: 'auto'
+        }}>
             <Container maxWidth="md">
-                <Typography variant="h3" gutterBottom>
-                    {cardData.title}
+                <Typography variant="h2" gutterBottom>
                 </Typography>
                 <Typography variant="body1" paragraph>
-                    {cardData.description}
                 </Typography>
                 {renderContent()}
                 <Button variant="contained" onClick={() => navigate(-1)}>

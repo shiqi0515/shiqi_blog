@@ -25,6 +25,7 @@ function Career() {
             company: t('Shenzhen Tiansenfu Property Management Co., Ltd'),
             period: t('Jun 2023 - Aug 2023'),
             description: t('Description for Shenzhen Tiansenfu'),
+            image: '/work/work_certi.jpg',
         },
     ];
 
@@ -34,6 +35,7 @@ function Career() {
             company: t('Sogeti Sverige, Borlänge'),
             period: t('Jun 2023 - Aug 2023'),
             description: t('Description for Research Project'),
+            image: '/project/project_thesis.jpg',
         },
     ];
 
@@ -63,9 +65,9 @@ function Career() {
                                         title={`${work.title} | ${work.subtitle}`}
                                         subtitle={`${work.company} | ${work.period}`}
                                         content={work.description}
-                                        type="career"
+                                        type="work"
                                         id={index}
-                                        onClick={() => handleCardClick("career", index + 1, work)}
+                                        onClick={() => handleCardClick("work", index + 1, work)}
                                     />
                                 </div>
                             ))}
