@@ -8,7 +8,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { useTranslation } from 'react-i18next';
 
 function TopBar() {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleLanguageClick = (event) => {
