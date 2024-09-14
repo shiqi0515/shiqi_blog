@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 function DetailPage() {
     const { t } = useTranslation();
-    const { type, id } = useParams();
+    const { type } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const cardData = location.state?.cardData;
