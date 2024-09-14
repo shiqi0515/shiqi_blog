@@ -75,7 +75,7 @@ function Career() {
                         </CustomSlider>
                     </Box>
 
-                    <Box sx={{ mt: 4 }}>
+                    <Box sx={{ mt: 0 }}>
                         <Typography variant="h4" gutterBottom color="#457b9d">
                             {t('Projects')}
                         </Typography>

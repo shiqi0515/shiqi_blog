@@ -100,7 +100,7 @@ function Life() {
                             variant="h4"
                             gutterBottom
                             color="#457b9d"
-                            sx={{ mt: 2 }}
+                            sx={{ mt: 0 }}
                         >
                             {t("Cooking")}
                         </Typography>
