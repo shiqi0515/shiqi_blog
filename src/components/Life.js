@@ -89,8 +89,6 @@ function Life() {
                                         subtitle={travel.date}
                                         icon={TravelExploreIcon}
                                         type="travel"
-                                        id={index + 1}
-                                        onClick={() => handleCardClick("travel", index + 1, travel)}
                                     />
                                 </div>
                             ))}
@@ -115,8 +113,6 @@ function Life() {
                                         subtitle={recipe.subtitle}
                                         icon={RestaurantIcon}
                                         type="cooking"
-                                        id={index + 1}
-                                        onClick={() => handleCardClick("cooking", index + 1, recipe)}
                                     />
                                 </div>
                             ))}

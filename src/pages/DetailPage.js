@@ -11,7 +11,7 @@ function DetailPage() {
     const cardData = location.state?.cardData;
 
     if (!cardData) {
-        return <div>加载中...</div>; // 或者显示一个错误消息
+        return <div>Loading...</div>; // 或者显示一个错误消息
     }
 
     const renderContent = () => {
@@ -24,22 +24,6 @@ function DetailPage() {
         };
 
         switch (type) {
-            case 'travel':
-                return (
-                    <>
-                        <h1>{cardData.destination}</h1>
-                        <h3>{t('Date')}: {cardData.date}</h3>
-                        <img src={cardData.image} alt={cardData.destination} style={imgStyle} />
-                    </>
-                );
-            case 'cooking':
-                return (
-                    <>
-                        <h1>{cardData.name}</h1>
-                        <p>{cardData.subtitle}</p>
-                        <img src={cardData.image} alt={cardData.name} style={imgStyle} />
-                    </>
-                );
             case 'work':
                 return (
                     <>
@@ -48,7 +32,18 @@ function DetailPage() {
                         <h2>{t('Company')}: {cardData.company}</h2>
                         <h3>{t('Period')}: {cardData.period}</h3>
                         <p>{t('Description')}: {cardData.description}</p>
+                        {cardData.link && (
+                            <a
+                                href={cardData.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: '#1976d2', textDecoration: 'none' }}
+                            >
+                                {t('Visit Website')}
+                            </a>
+                        )}
                         {cardData.image && <img src={cardData.image} alt={cardData.title} style={imgStyle} />}
+                        <br />
                     </>
                 );
             case 'project':

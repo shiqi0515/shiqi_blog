@@ -18,6 +18,7 @@ function Career() {
             company: t('Granode Materials'),
             period: t('May 2024 - Present'),
             description: t('Description for Granode Materials'),
+            link: 'https://granode.com',
         },
         {
             title: t('Full-stack Engineer'),
